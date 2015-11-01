@@ -17,7 +17,7 @@ angular.module('finalProjectAngularAppApp')
       query: {
         method:'GET',
         params:{
-          ingredient: ""
+          ingredient: ''
         },
         isArray:false
     }
