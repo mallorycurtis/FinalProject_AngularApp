@@ -17,6 +17,7 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
+    'ngStorage', // added to enable localStorage features
     'ngTouch'
   ])
   .config(function ($routeProvider) {
@@ -30,6 +31,11 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .when('/current/:recipeName', {
+        templateUrl: 'views/current.html',
+        controller: 'CurrentCtrl',
+        controllerAs: 'current'
       })
       .otherwise({
         redirectTo: '/'

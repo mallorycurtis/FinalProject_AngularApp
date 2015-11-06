@@ -1,0 +1,12 @@
+<div ng-controller="CurrentCtrl">
+  <h2 class="resultsTitle">Ingredients for {{id}}</h2>
+
+    <ul class="allIngredients" ng-repeat="ingredient in ingredients">
+      <li>{{ingredient}}</li>
+    </ul>
+
+    <p>
+      <button class="btn btn-sm btn-primary" ng-click="addTo()">Save Recipe</button>
+      <button class="btn btn-sm btn-primary" ng-href="#/">New Search</button>
+    </p>
+</div>

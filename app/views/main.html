@@ -3,8 +3,8 @@
   <p class="lead">
     <div>
         <p>
-          <label for="location">Ingredients:
-            <input type="text" name="ingredient" ng-model="ingredient" placeholder= "Type Ingredient">
+          <label for="location">
+            <input type="text" name="ingredient" ng-model="ingredient" placeholder= "Search Recipes Here">
           </label>
         </p>
         <p>
@@ -16,8 +16,8 @@
           <div class="col-xs-6 col-md-3" ng-repeat="recipe in recipeResults.matches">
             <h3>{{recipe.recipeName}}</h3>
             <img src="{{recipe.imageUrlsBySize[90]}}"></img>
-            <p>Rating: {{recipe.rating}} <span class="glyphicon glyphicon-star"></span></p>
-            <p ng-click="addTo()"><span class="glyphicon glyphicon-plus"></span>Add to My Recipes</p>
+            <p>Rating: {{recipe.rating}}<span class="glyphicon glyphicon-star"></span></p>
+            <a ng-href="/#/current/{{recipe.id}}" ng-click="saveRecipe(recipe)" class="btn btn-lg btn-primary">View Recipe</a>
           </div>
         </div>
       </div>
@@ -25,22 +25,16 @@
   </div>
 </div>
 
-<div ng-app class="jumbotron" ng-controller="addTo">
+<div ng-app class="jumbotron" >
   <h1>My Recipes</h1>
-    <div class="myRecipes">
-      <div class="row">
-        <div class="col-xs-6 col-md-3" ng-click="addTo()">
-          <h3>{{recipe.recipeName}}</h3>
-          <img src="{{recipe.imageUrlsBySize[90]}}"></img>
-          <p>Rating: {{recipe.rating}} <span class="glyphicon glyphicon-star"></span></p>
-        </div>
-      </div>
+      <div ng-if="storage.savedDishes">
+        <ul class="saved-recipes-list" id="Recipe Data">
+          <li ng-repeat="recipe in storage.savedDishes">{{recipe.recipeName}}</li>
+        </ul>
     </div>
 </div>
 
-<div ng-app class="jumbotron" ng-controller="MainCtrl">
+<div ng-app class="jumbotron" >
       <h1>Shopping List</h1>
-        <div class="shopping">
-          <li>{{ingredient}}</li>
-        </div>
+
 </div>
