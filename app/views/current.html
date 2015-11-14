@@ -1,12 +1,22 @@
 <div ng-controller="CurrentCtrl">
-  <h2 class="resultsTitle">Ingredients for {{id}}</h2>
+  <h2 class="resultsTitle">Ingredients for {{recipeName}}</h2>
 
     <ul class="allIngredients" ng-repeat="ingredient in ingredients">
       <li>{{ingredient}}</li>
     </ul>
 
     <p>
-      <button class="btn btn-sm btn-primary" ng-click="addTo()">Save Recipe</button>
-      <button class="btn btn-sm btn-primary" ng-href="#/">New Search</button>
+      <a ng-click="addTo()" class="btn btn-lg btn-primary">Save Recipe</a>
+      <a ng-href="#/" class="btn btn-lg btn-primary">New Search</a>
     </p>
+
+    <div ng-messages="recipeSaved">
+    <p class="recipe-saved-alert bg-success text-success" ng-message="success">
+        {{recipeName}} has been saved to your recipes!
+    </p>
+    <p class="recipe-saved-alert bg-warning text-warning" ng-message="duplicate">
+        You've already saved this recipe!
+    </p>
+    </div>
+
 </div>

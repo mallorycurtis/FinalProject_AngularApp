@@ -2,6 +2,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+@import "transitions";
+// CSS Transitions
 
 .browsehappy {
   margin: 0.2em 0;
@@ -88,4 +90,14 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+#scrollArea {
+  height: 280px;
+  overflow: auto;
+}
+
+#scrollArea2 {
+  height: 430px;
+  overflow: auto;
 }

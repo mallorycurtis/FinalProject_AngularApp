@@ -1,40 +1,82 @@
-<div ng-app class="jumbotron" ng-controller="MainCtrl">
-  <h1>Recipes for {{ingredient}}</h1>
-  <p class="lead">
-    <div>
-        <p>
-          <label for="location">
-            <input type="text" name="ingredient" ng-model="ingredient" placeholder= "Search Recipes Here">
+<div class="container">
+
+<!--Start Recipe Search Container-->
+  <div ng-app class="col-xs-6 col-md-6" ng-controller="MainCtrl" style="text-align:center">
+    <h1>Find Recipes</h1>
+      <div class="lead">
+          <p><label for="location">
+            <input type="text" name="ingredient" ng-model="ingredient" placeholder= "Search by ingredients">
           </label>
         </p>
-        <p>
-          <button class="btn btn-lg btn-primary" ng-click="refreshCurrent()">Get Recipes</button>
-        </p>
-    <div class="results">
-      <h2 class="resultsTitle">Search for: {{ingredient}} ({{recipeResults.totalMatchCount}} found)</h2>
-        <div class="row">
-          <div class="col-xs-6 col-md-3" ng-repeat="recipe in recipeResults.matches">
-            <h3>{{recipe.recipeName}}</h3>
+      </div>
+      <div ng-app="ngAnimate">
+        <p><button type="button" ng-model="clicked" ng-init="checked=true" class="btn btn-lg btn-primary" ng-click="refreshCurrent()">Get Recipes</button></p>
+          <div class="results">
+            <span ng-if="clicked" class="animate-if">
+              <h2 class="resultsTitle">Search for: {{ingredient}} ({{recipeResults.totalMatchCount}} found)</h2>
+            </span>
+            <div id="scrollArea" ng-controller="ScrollController">
+          <div class="col-xs-6 col-md-6" ng-repeat="recipe in recipeResults.matches">
+            <h5>{{recipe.recipeName}}</h5>
             <img src="{{recipe.imageUrlsBySize[90]}}"></img>
             <p>Rating: {{recipe.rating}}<span class="glyphicon glyphicon-star"></span></p>
-            <a ng-href="/FinalProject_AngularApp/#/current/{{recipe.id}}" ng-click="saveRecipe(recipe)" class="btn btn-lg btn-primary">View Recipe</a>
+            <a ng-href="/FinalProject_AngularApp/#/current/{{recipe.id}}" ng-click="saveRecipe(recipe)" class="btn btn-lg btn-primary">View Recipe</a>`
+          </div>
+          </div> <!--end scroll area-->
           </div>
         </div>
-      </div>
-    </p>
-  </div>
-</div>
-
-<div ng-app class="jumbotron" >
-  <h1>My Recipes</h1>
-      <div ng-if="storage.savedDishes">
-        <ul class="saved-recipes-list" id="Recipe Data">
-          <li ng-repeat="recipe in storage.savedDishes">{{recipe.recipeName}}</li>
-        </ul>
     </div>
+<!--End Recipe Search Container-->
+
+<!--Start Tab Panel Container-->
+          <div class="container" ng-controller="MainCtrl">
+            <div ng-app class="col-xs-6 col-md-6" style="margin-left:10px">
+              <div role="tabpanel" >
+                <ul class="nav nav-pills">
+                  <li class="active"><a data-toggle="pill" href="#recipes">My Recipes</a></li>
+                  <li><a data-toggle="pill" href="#shoppinglist">Shopping List</a></li>
+                </ul>
+              <div class="tab-content">
+                <div id="recipes" class="tab-pane fade in active">
+                    <div ng-app class="col-xs-12 col-md-12">
+                      <div ng-if="storage.savedDishes">
+                        <div class="row">
+                          <div id="scrollArea2" ng-controller="ScrollController">
+                          <div class="col-xs-6 col-md-6" ng-repeat="recipe in storage.savedDishes">
+                            <h5>{{recipe.recipeName}}</h5>
+                            <img src="{{recipe.imageUrlsBySize[90]}}"></img>
+                            <p><a class="btn btn-sm btn-primary" ng-click="unsaveRecipe(recipe)">Unsave Recipe</a></p>
+                          </div>
+                        </div> <!--end scroll area-->
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <!--Shopping List -->
+                <div id="shoppinglist" class="tab-pane fade">
+                    <div ng-app class="col-xs-12 col-md-12" style="background-image:url('images/paper.png')">
+                      <h3>Items Needed:</h3>
+                      <div ng-if="storage.savedDishes">
+                        <div id="scrollArea3" ng-controller="ScrollController">
+                          <ul>
+                            <li ng-repeat="recipe in storage.savedDishes">{{recipe.recipeName}}:
+                              <ul>
+                                <li ng-repeat="ingredient in recipe.ingredients">{{ingredient}}</li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </div> <!--end scroll area-->
+                      </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            </div>
+    <!--End Tab Panel Container-->
+
 </div>
 
-<div ng-app class="jumbotron" >
-      <h1>Shopping List</h1>
-
-</div>
+<!-- ng-if for 'Item # Found'
+Unsave recipe
+Nav Pill highlight-->
