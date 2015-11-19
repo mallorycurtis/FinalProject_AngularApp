@@ -6,7 +6,7 @@
     </ul>
 
     <p>
-      <a ng-click="addTo()" class="btn btn-lg btn-primary">Save Recipe</a>
+      <a ng-click="myRecipe(storage.dish)" class="btn btn-lg btn-primary">Save Recipe</a>
       <a ng-href="#/" class="btn btn-lg btn-primary">New Search</a>
     </p>
 
@@ -15,7 +15,7 @@
         {{recipeName}} has been saved to your recipes!
     </p>
     <p class="recipe-saved-alert bg-warning text-warning" ng-message="duplicate">
-        You've already saved this recipe!
+        This recipe has already been saved.
     </p>
     </div>
 

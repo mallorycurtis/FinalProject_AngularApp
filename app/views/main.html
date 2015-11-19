@@ -10,7 +10,7 @@
         </p>
       </div>
       <div ng-app="ngAnimate">
-        <p><button type="button" ng-model="clicked" ng-init="checked=true" class="btn btn-lg btn-primary" ng-click="refreshCurrent()">Get Recipes</button></p>
+        <p><button type="button" ng-model="clicked" ng-init="checked=true" class="btn btn-lg btn-primary styledbutton" ng-click="refreshCurrent()">Get Recipes</button></p>
           <div class="results">
             <span ng-if="clicked" class="animate-if">
               <h2 class="resultsTitle">Search for: {{ingredient}} ({{recipeResults.totalMatchCount}} found)</h2>
@@ -20,8 +20,7 @@
             <h5>{{recipe.recipeName}}</h5>
             <img src="{{recipe.imageUrlsBySize[90]}}"></img>
             <p>Rating: {{recipe.rating}}<span class="glyphicon glyphicon-star"></span></p>
-            <a ng-href="/FinalProject_AngularApp/#/current/{{recipe.id}}" ng-click="saveRecipe(recipe)" class="btn btn-lg btn-primary">View Recipe</a>`
-          </div>
+            <a ng-href="/FinalProject_AngularApp/#/current/{{recipe.id}}" ng-click="saveRecipe(recipe)" class="btn btn-lg btn-primary">View Recipe</a>
           </div> <!--end scroll area-->
           </div>
         </div>
@@ -44,8 +43,8 @@
                           <div id="scrollArea2" ng-controller="ScrollController">
                           <div class="col-xs-6 col-md-6" ng-repeat="recipe in storage.savedDishes">
                             <h5>{{recipe.recipeName}}</h5>
-                            <img src="{{recipe.imageUrlsBySize[90]}}"></img>
-                            <p><a class="btn btn-sm btn-primary" ng-click="unsaveRecipe(recipe)">Unsave Recipe</a></p>
+                            <img src="{{recipe.imageUrlsBySize[90]}}"></img><br>
+                            <a class="btn btn-sm btn-primary styledbutton2" ng-click="unsaveRecipe(recipe)">Unsave Recipe</a>
                           </div>
                         </div> <!--end scroll area-->
                         </div>
@@ -76,7 +75,3 @@
     <!--End Tab Panel Container-->
 
 </div>
-
-<!-- ng-if for 'Item # Found'
-Unsave recipe
-Nav Pill highlight-->

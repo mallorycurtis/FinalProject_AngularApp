@@ -8,7 +8,7 @@
  * Controller of the finalProjectAngularAppApp
  */
  angular.module('finalProjectAngularAppApp')
-   .controller('MainCtrl', function ($scope, current, $localStorage, $window) {
+   .controller('MainCtrl', function ($scope, current, $localStorage) {
      $scope.current = current.query();
      $scope.storage = $localStorage;
      console.log ($localStorage);
@@ -24,8 +24,12 @@
 
      $scope.unsaveRecipe = function(recipe){
        console.log(recipe.ingredients);
+        for (var i=0; i<$localStorage.savedDishes.length; i++){
+          if ($localStorage.savedDishes[i].id===recipe.id){
+            $localStorage.savedDishes.splice(i, 1);
+          }
+        }
 
-       $localStorage.savedDishes.splice(recipe.id);
 
       //  $window.location.reload();
      };

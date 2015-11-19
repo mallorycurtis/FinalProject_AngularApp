@@ -25,11 +25,8 @@ angular.module('finalProjectAngularAppApp')
     };
 
     $scope.myRecipe = function(dish){
-      var recipeData = {
-        'name': dish.recipeName,
-        'id': dish.id
-      };
-      if (!localStorage.savedDishes) {
+      var recipeData = dish;
+      if (!$localStorage.savedDishes) {
         $localStorage.savedDishes = [recipeData];
       } else {
         var save = true;
@@ -41,7 +38,7 @@ angular.module('finalProjectAngularAppApp')
         if (save===true){
           $localStorage.savedDishes.push($localStorage.dish);
           $scope.recipeSaved = {
-            'sucess' : true
+            'success' : true
           };
         } else {
           console.log('Already Saved');

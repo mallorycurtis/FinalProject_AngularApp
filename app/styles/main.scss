@@ -101,3 +101,31 @@ body {
   height: 430px;
   overflow: auto;
 }
+
+.styledbutton {
+	background-color:#ed8223;
+	color:#fff;
+	font-family:'Helvetica Neue',sans-serif;
+	font-size:18px;
+	line-height:5px;
+	border-radius:20px;
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	border:0;
+	width:135px;
+	height:32px
+}
+
+.styledbutton2 {
+	background-color:#ed8223;
+	color:#fff;
+	font-family:'Helvetica Neue',sans-serif;
+	font-size:13px;
+	line-height:15px;
+	border-radius:20px;
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	border:0;
+	width:110px;
+	height:25px
+}
