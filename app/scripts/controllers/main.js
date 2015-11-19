@@ -12,7 +12,7 @@
      $scope.current = current.query();
      $scope.storage = $localStorage;
      console.log ($localStorage);
-     $scope.ingredients = $localStorage.savedDishes.ingredients;
+     
      $scope.refreshCurrent = function(){
          $scope.recipeResults = current.query({
              ingredient: $scope.ingredient
