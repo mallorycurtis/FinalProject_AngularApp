@@ -1,22 +1,38 @@
 <div ng-controller="CurrentCtrl">
-  <h2 class="resultsTitle">Ingredients for {{recipeName}}</h2>
+  <h2 class="resultsTitle">{{recipeName}}</h2>
 
-    <ul class="allIngredients" ng-repeat="ingredient in ingredients">
-      <li>{{ingredient}}</li>
-    </ul>
+  <div ng-app class="col-xs-6 col-md-6">
+    <h4>Ingredients</h4>
+      <ul class="allIngredients" ng-repeat="ingredient in ingredients">
+        <li>{{ingredient}}</li>
+      </ul>
+  </div>
 
+  <div ng-app class="col-xs-6 col-md-6">
+        <p><img src="{{recipeImage[90]}}"></img></p>
+        <p>Rating: {{recipeRating}}/5 <span class="glyphicon glyphicon-star"> </span>
+        <p>Recipe Source: {{recipeOrigin}}</p>
+
+  </div>
+
+  <div ng-app class="col-xs-12 col-md-12">
+      <div ng-messages="recipeSaved">
+      <p class="recipe-saved-alert bg-success text-success" ng-message="success">
+          {{recipeName}} has been saved to your recipes!
+      </p>
+      <p class="recipe-saved-alert bg-warning text-warning" ng-message="duplicate">
+          This recipe has already been saved.
+      </p>
+      </div>
+    </div>
+    
+  <div ng-app class="col-xs-12 col-md-12" style="text-align:center">
     <p>
       <a ng-click="myRecipe(storage.dish)" class="btn btn-lg btn-primary styledbutton">Save Recipe</a>
       <a ng-href="#/" class="btn btn-lg btn-primary styledbutton">New Search</a>
     </p>
+  </div>
 
-    <div ng-messages="recipeSaved">
-    <p class="recipe-saved-alert bg-success text-success" ng-message="success">
-        {{recipeName}} has been saved to your recipes!
-    </p>
-    <p class="recipe-saved-alert bg-warning text-warning" ng-message="duplicate">
-        This recipe has already been saved.
-    </p>
-    </div>
+
 
 </div>

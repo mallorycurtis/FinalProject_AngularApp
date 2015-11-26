@@ -13,6 +13,9 @@ angular.module('finalProjectAngularAppApp')
     console.log ($scope.storage.dish);
     $scope.recipeName = $scope.storage.dish.recipeName;
     $scope.ingredients = $scope.storage.dish.ingredients;
+    $scope.recipeRating = $scope.storage.dish.rating;
+    $scope.recipeImage = $scope.storage.dish.imageUrlsBySize;
+    $scope.recipeOrigin = $scope.storage.dish.sourceDisplayName;
     if (!$localStorage.savedDishes) {
       $localStorage.savedDishes = [];
     }
